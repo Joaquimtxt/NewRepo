@@ -1,8 +1,14 @@
+using ExemploController.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Adicionar Banco de Dados na memória
+builder.Services.AddDbContext<ExemploContext>(options =>
+options.UseInMemoryDatabase("ExemplosDb"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
